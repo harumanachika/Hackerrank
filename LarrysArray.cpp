@@ -19,7 +19,7 @@ signed main() {
 	if(ct%2 != 0) ans = "NO";
 	else ans = "YES";
 	//１回の置換で、A[i]>A[j]となるjが２つ発生。
-	//jの個数は常に偶数。
+	//jの個数は常に偶数。`
 	
 	//cout <<  << endl;
 	return ans;
