@@ -8,9 +8,22 @@ signed main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 
+	//vector<int> a;
+	int lg = a.size();
+
+	map<int,int> mp;
+	for(int i=0; i<lg; i++) {
+		int id = a[i];
+		mp[id]++;
+	}
 	
+	int ct = 0;
+	for(auto p : mp) {
+		ct += p.second*(p.second-1);
+	}
+
 	//cout <<  << endl;
-	return 0;
+	return ct;
 }
 //std::string str;
 //str = std::to_string(int i);
