@@ -9,19 +9,20 @@ signed main() {
 	cin.tie(0);
 
 	//vector<int> a;
+	// ->int64_t solve() {...
 	int lg = a.size();
 
-	map<int,int> mp;
+	map<int,int64_t> mp;
 	for(int i=0; i<lg; i++) {
 		int id = a[i];
 		mp[id]++;
 	}
 	
-	int ct = 0;
+	int64_t ct = 0;
 	for(auto p : mp) {
 		ct += p.second*(p.second-1);
 	}
-
+	
 	//cout <<  << endl;
 	return ct;
 }
