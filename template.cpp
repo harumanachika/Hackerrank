@@ -6,10 +6,10 @@
 #define repr(i, N) for(int i=N-1; i>=0; --i)
 #define all(v) v.begin(),v.end() 
 using namespace std;
-using pr = pair<int, int>;
-using tup  = tuple<int, int, int>;
 using vec  = vector<int>;
 using vvec = vector<vec>;
+typedef pair<int,int> pr;
+typedef tuple<int,int> tup;
 
 //グローバル変数 関数：
 //vvec dp(MAX_N, vec(MAX_M));
