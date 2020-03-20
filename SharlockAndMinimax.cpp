@@ -42,6 +42,7 @@ signed main() {
 		ans.first = q-arr[n-1];
 		ans.second = q;
 	} else {
+		/* The maximum (M - arr[i]) occurs on the mid values between adjacent numbers in the sorted array. */
 		if(arr[0] > p && ans.first < arr[0]-p) {
 			ans.first = arr[0]-p;
 			ans.second = p;
