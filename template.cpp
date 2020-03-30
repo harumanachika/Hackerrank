@@ -60,7 +60,15 @@ signed main() {
 for(auto p : mp) {
 	ct += p.second*(p.second-1); }
 
-map<int,int>::iterator itr;
+map<int,int>::iterator itr, itr1, itr2;
 for(itr = mp.begin(); itr != mp.end(); itr++) {
 	ans += itr->second * (itr->second-1);
-}*/
+}
+
+distance(itr1, itr2);
+advance(itr, k);
+next(itr, k); //=itr + k;
+*itr;
+itr = mp.begin(); mp.erase(itr);
+itr = prev(mp.end());
+*/
