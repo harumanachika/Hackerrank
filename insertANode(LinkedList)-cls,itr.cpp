@@ -79,6 +79,33 @@ SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* llist, int data) {
 	return llist;
 }
 
+//insert A Node At Position
+SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data, int position) {
+	 SinglyLinkedListNode* newNode = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+	newNode->data = data;
+	
+	if (head == NULL) {
+		newNode->next = NULL;
+		return newNode;
+	}
+	
+	if (position == 0) {
+		newNode->next = head;
+		return newNode;
+	}
+	
+	SinglyLinkedListNode* nowNode = head;
+	while(position-1 > 0) {
+		nowNode = nowNode->next;
+		position--;
+	}
+	newNode->next = nowNode->next;
+	nowNode->next = newNode;
+	
+	return head;
+}
+
+
 /* メイン・プログラム */
 signed main() {
 	ios::sync_with_stdio(false);
