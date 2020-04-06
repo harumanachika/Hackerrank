@@ -81,15 +81,15 @@ SinglyLinkedListNode* insertNodeAtHead(SinglyLinkedListNode* llist, int data) {
 
 //insert A Node At Position
 SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data, int position) {
-	 SinglyLinkedListNode* newNode = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
+	SinglyLinkedListNode* newNode = (SinglyLinkedListNode*)malloc(sizeof(SinglyLinkedListNode));
 	newNode->data = data;
 	
-	if (head == NULL) {
+	if(head == NULL) {
 		newNode->next = NULL;
 		return newNode;
 	}
 	
-	if (position == 0) {
+	if(position == 0) {
 		newNode->next = head;
 		return newNode;
 	}
@@ -101,6 +101,30 @@ SinglyLinkedListNode* insertNodeAtPosition(SinglyLinkedListNode* head, int data,
 	}
 	newNode->next = nowNode->next;
 	nowNode->next = newNode;
+	
+	return head;
+}
+
+//delete A Node At Position
+SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* head, int position) {
+	SinglyLinkedListNode* prvNode = NULL;
+	SinglyLinkedListNode* nowNode = head;
+	
+	if(position == 0) {
+		head = head->next;
+		delete(nowNode);
+		return head;
+	}
+	
+	while(position > 0) {
+		prvNode = nowNode;
+		nowNode = nowNode->next;
+		position--;
+	}
+	if(nowNode != NULL) {
+		prvNode->next = nowNode->next;
+		delete(nowNode);
+	}
 	
 	return head;
 }
