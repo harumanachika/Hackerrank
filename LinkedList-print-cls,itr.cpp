@@ -44,10 +44,21 @@ public:
 };
 
 void printLinkedList(SinglyLinkedListNode* head) {
-	SinglyLinkedListNode* local = head;
-	while(local != NULL) {
-		cout << local->data << endl;
-		local = local->next;
+	SinglyLinkedListNode* nowNode = head;
+	
+	while(nowNode != NULL) {
+		cout << nowNode->data << endl;
+		nowNode = nowNode->next;
+	}
+}
+
+void reversePrint(SinglyLinkedListNode* head) {
+	SinglyLinkedListNode* nowNode = head;
+	
+	if(nowNode == NULL) return;
+	else {
+		reversePrint(nowNode->next);
+		cout << nowNode->data << endl;
 	}
 }
 
