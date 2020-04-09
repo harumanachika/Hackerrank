@@ -129,6 +129,19 @@ SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* head, int position) {
 	return head;
 }
 
+//reverse
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* head) {
+	SinglyLinkedListNode* nowNode = head;
+	
+	if(head->next != NULL) {
+		nowNode = reverse(head->next);
+		head->next->next = head;
+		head->next = NULL;
+	}
+	
+	return nowNode;
+}
+
 
 /* メイン・プログラム */
 signed main() {
