@@ -142,6 +142,18 @@ SinglyLinkedListNode* reverse(SinglyLinkedListNode* head) {
 	return nowNode;
 }
 
+//compare
+bool compare_lists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+	if(head1->next == NULL && head2->next == NULL) {
+		return 1;
+	} else if(head1->next == NULL || head2->next == NULL) {
+		return 0;
+	}
+	
+	if(head1->data == head2->data)
+	
+}
+
 
 /* メイン・プログラム */
 signed main() {
