@@ -43,6 +43,7 @@ public:
 	}
 };
 
+//get Node Value
 int getNode(SinglyLinkedListNode* head, int positionFromTail) {
 	SinglyLinkedListNode* nowNode = head;
 	SinglyLinkedListNode* rearNode = head;
@@ -57,6 +58,23 @@ int getNode(SinglyLinkedListNode* head, int positionFromTail) {
 	}
 	
 	return rearNode->data;
+}
+
+//delete Duplicate-Value Nodes
+SinglyLinkedListNode* removeDuplicates(SinglyLinkedListNode* head) {
+	if(head == NULL || head->next == NULL) return head;
+	
+	SinglyLinkedListNode* nextNode = head->next;
+	while(nextNode->data == head->data) {
+		if(nextNode->next != NULL) nextNode = nextNode->next;
+		else {
+			nextNode = NULL;
+			break;
+		}
+	}
+	
+	head->next = removeDuplicates(nextNode);
+	return head;
 }
 
 /* メイン・プログラム */
