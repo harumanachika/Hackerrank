@@ -256,7 +256,7 @@ signed main() {
 	while(T > 0) { */
 	
 	SinglyLinkedList* llist = new SinglyLinkedList();
-	int n; cin >> n;
+	
 	
 	//cout << << endl;
 	
