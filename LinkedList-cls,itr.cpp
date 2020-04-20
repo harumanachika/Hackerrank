@@ -246,6 +246,8 @@ bool has_cycle(SinglyLinkedListNode* head) {
 	return 0;
 }
 
+
+
 /* メイン・プログラム */
 signed main() {
 	ios::sync_with_stdio(false);
