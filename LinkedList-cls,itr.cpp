@@ -246,7 +246,20 @@ bool has_cycle(SinglyLinkedListNode* head) {
 	return 0;
 }
 
-
+int findMergeNode(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+	SinglyLinkedListNode* nowNode1 = head1;
+	SinglyLinkedListNode* nowNode2 = head2;
+	
+	while(nowNode1 != nowNode2) {
+		if(nowNode1->next == NULL) nowNode1 = head2;
+		else nowNode1 = nowNode1->next;
+		
+		if(nowNode2->next == NULL) nowNode2 = head1;
+		else nowNode2 = nowNode2->next;
+	}
+	
+	return nowNode2->data;
+}
 
 /* メイン・プログラム */
 signed main() {
