@@ -51,6 +51,13 @@ class Solution {
 		preOrder(root->right);
 	}
 
+	void postOrder(Node *root) {
+		if(root == NULL) return;
+		postOrder(root->left);
+		postOrder(root->right);
+		cout << root->data << " ";
+	}
+
 }; //End of Solution
 
 /* メイン・プログラム */
