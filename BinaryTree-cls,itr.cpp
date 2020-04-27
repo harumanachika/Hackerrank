@@ -44,6 +44,7 @@ class Solution {
            }
         }
 
+	//preOrder Traversal
 	void preOrder(Node *root) {
 		if(root == NULL) return;
 		cout << root->data << " ";
@@ -51,6 +52,7 @@ class Solution {
 		preOrder(root->right);
 	}
 
+	//postOrder Traversal
 	void postOrder(Node *root) {
 		if(root == NULL) return;
 		postOrder(root->left);
@@ -58,11 +60,17 @@ class Solution {
 		cout << root->data << " ";
 	}
 
+	//inOrder Traversal
 	void inOrder(Node *root) {
 		if(root == NULL) return;
 		inOrder(root->left);
 		cout << root->data << " ";
 		inOrder(root->right);
+	}
+
+	//height of a BinaryTree
+	int height(Node* root) {
+		
 	}
 
 }; //End of Solution
