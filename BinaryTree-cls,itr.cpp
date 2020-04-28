@@ -70,7 +70,13 @@ class Solution {
 
 	//height of a BinaryTree
 	int height(Node* root) {
-		
+		if(root != NULL) {
+			int r = height(root->right);
+			int l = height(root->left);
+			return 1 + max(r, l);
+		} else {
+			return -1;
+		}
 	}
 
 }; //End of Solution
