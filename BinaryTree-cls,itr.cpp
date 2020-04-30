@@ -80,22 +80,37 @@ class Solution {
 	}
 	
 	//print the Top View of a BinaryTree
-	void travelleft(Node * root) {
+	void travelleft(Node *root) {
 		if(root == NULL) return;
 		travelleft(root->left);
 		cout << root->data << " ";
 	}
 	
-	void travelright(Node * root) {
+	void travelright(Node *root) {
 		if(root == NULL) return; 
 		cout << root->data << " ";
 		travelright(root->right);
 	}
 	
-	void topView(Node * root) {
+	void topView(Node *root) {
 		travelleft(root->left);
 		cout << root->data << " ";
 		travelright(root->right);
+	}
+	
+	//level Order Traversal
+	queue<Node*> q;	
+	void levelOrder(Node* root) {
+		if(root == NULL) return;
+		q.push(root);
+		
+		while(!q.empty()) {
+			Node* nowNode = q.front(); q.pop();
+			cout << nowNode->data << " ";
+			
+			if(nowNode->left != NULL) q.push(nowNode->left);
+			if(nowNode->right != NULL) q.push(nowNode->right);
+		}
 	}
 
 }; //End of Solution
