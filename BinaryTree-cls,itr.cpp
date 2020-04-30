@@ -78,6 +78,25 @@ class Solution {
 			return -1;
 		}
 	}
+	
+	//print the Top View of a BinaryTree
+	void travelleft(Node * root) {
+		if(root == NULL) return;
+		travelleft(root->left);
+		cout << root->data << " ";
+	}
+	
+	void travelright(Node * root) {
+		if(root == NULL) return; 
+		cout << root->data << " ";
+		travelright(root->right);
+	}
+	
+	void topView(Node * root) {
+		travelleft(root->left);
+		cout << root->data << " ";
+		travelright(root->right);
+	}
 
 }; //End of Solution
 
