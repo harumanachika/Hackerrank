@@ -8,7 +8,6 @@
 using namespace std;
 using vec  = vector<int>;
 using vvec = vector<vec>;
-typedef pair<int,int> pr;
 typedef tuple<int,int> tup;
 
 //グローバル変数 関数：
@@ -80,22 +79,32 @@ class Solution {
 	}
 	
 	//print the Top View of a BinaryTree
-	void travelleft(Node *root) {
+	typedef pair<int,int> pr;
+	map<int,pr> mp;
+	map<int,pr>::iterator itr; 
+	
+	void storeNode(Node *root, int i, int h) {
 		if(root == NULL) return;
-		travelleft(root->left);
-		cout << root->data << " ";
+		
+		itr = mp.find(i);
+		if(itr == mp.end()) mp[i] = make_pair(h, root->data);
+		else {
+			if(itr->second.first > h) mp[i] = make_pair(h, root->data);
+		}
+		
+		if(root->left != NULL) storeNode(root->left, i-1, h+1);
+		if(root->right != NULL) storeNode(root->right, i+1, h+1);
 	}
 	
-	void travelright(Node *root) {
-		if(root == NULL) return; 
-		cout << root->data << " ";
-		travelright(root->right);
+	void printmap() {
+		for(itr=mp.begin(); itr!=mp.end(); ++itr)
+			cout << itr->second.second << " ";
 	}
 	
 	void topView(Node *root) {
-		travelleft(root->left);
-		cout << root->data << " ";
-		travelright(root->right);
+		storeNode(root, 0, 0);
+		printmap();
+		return;
 	}
 	
 	//level Order Traversal
@@ -112,6 +121,24 @@ class Solution {
 			if(nowNode->right != NULL) q.push(nowNode->right);
 		}
 	}
+	
+	//insert Node to the BinarySerchTree
+	Node* insert(Node* root, int data) {
+		if(root == NULL) {
+			Node* nowNode = (Node*)malloc(sizeof(Node));
+			nowNode->data = data;
+			nowNode->right = NULL;
+			nowNode->left = NULL;
+			root = nowNode;
+		} else if(root->data < data) {
+			root->rignt = insert(root->right, data);
+		} else {
+			root->left = insert(root->left, data);
+		}
+		
+		return root;
+	}
+	
 
 }; //End of Solution
 
@@ -152,3 +179,20 @@ signed main() {
 	int height;
 	double weight;
 };*/
+
+/*	map<int,int> mp;
+for(auto p : mp) {
+	ct += p.second*(p.second-1); }
+
+map<int,int>::iterator itr, itr1, itr2;
+for(itr = mp.begin(); itr != mp.end(); itr++) {
+	ans += itr->second * (itr->second-1);
+}
+
+distance(itr1, itr2);
+advance(itr, k);
+next(itr, k); //=itr + k;
+*itr;
+itr = mp.begin(); mp.erase(itr);
+itr = prev(mp.end());
+*/
