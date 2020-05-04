@@ -75,8 +75,7 @@ class Solution {
 			return 1 + max(r, l);
 		} else {
 			return -1;
-		}
-	}
+	}}
 	
 	//print the Top View of a BinaryTree
 	typedef pair<int,int> pr;
@@ -119,10 +118,9 @@ class Solution {
 			
 			if(nowNode->left != NULL) q.push(nowNode->left);
 			if(nowNode->right != NULL) q.push(nowNode->right);
-		}
-	}
+	}}
 	
-	//insert Node to the BinarySerchTree
+	//insert Node to the BinarySearchTree
 	Node* insert(Node* root, int data) {
 		if(root == NULL) {
 			Node* nowNode = (Node*)malloc(sizeof(Node));
@@ -139,7 +137,48 @@ class Solution {
 		return root;
 	}
 	
-
+	//Hoffman Decoding
+	void decode_huff(node* root, string s) {
+		node* nowNode = root;
+		
+		for(i=0; i<s.size(); i++) {
+			if(s[i] == '1') {
+				if(nowNode->right != NULL) nowNode = nowNode->right;
+				else {
+					nowNode = root;
+					continue;
+				}
+				
+				if(nowNode->right == NULL && nowNode->left == NULL) {
+					cout << nowNode->data;
+					nowNode = root;
+					continue;
+				} else continue;
+			} else {
+				if(nowNode->left != NULL) nowNode = nowNode->left;
+				else {
+					nowNode = root;
+					continue;
+				}
+				
+				if(nowNode->right == NULL && nowNode->left == NULL) {
+					cout << nowNode->data;
+					nowNode = root;
+					continue;
+				} else continue;
+	}}}
+	
+	//lowest Common Ancestor of a BinarySearchTree
+	Node *lca(Node *root, int v1, int v2) {
+		if(root->data > v1 && root->data > v2) {
+			return lca(root->left, v1, v2);
+		} else if(root->data < v1 && root->data < v2) {
+			return lca(root->right, v1, v2);
+		} else {
+			return root;
+	}}
+	
+	
 }; //End of Solution
 
 /* メイン・プログラム */
