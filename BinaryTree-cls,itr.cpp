@@ -178,6 +178,23 @@ class Solution {
 			return root;
 	}}
 	
+	//check BST or Not
+	const int64_t INF = 10000;
+	bool checkBST_(Node* root, int mx, int mn) {
+		if(root == NULL) return true;
+		
+		if(root->data < mx && root->data > mn &&
+			checkBST_(root->right, mx, root->data) &&
+			checkBST_(root->left, root->data, mn))
+			return true;
+		else {
+			return false;
+	}}
+	
+	bool checkBST(Node* root) {
+		if(root == NULL) return true;
+		return checkBST_(root, INF, 0);
+	}
 	
 }; //End of Solution
 
