@@ -13,7 +13,33 @@ typedef tuple<int,int> tup;
 
 //グローバル変数 関数：
 //vvec dp(MAX_N, vec(MAX_M));
+struct Node {
+	int index;
+	int depth;
+	struct Node *left;
+	struct Node *right;
+};
 
+//inOrder Traversal
+void inOrder(Node *root) {
+	if(root == NULL) return;
+	inOrder(root->left);
+	cout << root->data;
+	inOrder(root->right);
+}
+
+vvec swapNodes(vvec indexes, vec queries) {
+	/*
+	 * Write your code here.
+	 */
+	int lgq = queries.size();
+	int lgi = indexes.size();
+	
+	for(int i=0; i<lgq; i++) {
+		
+	)
+	
+}
 
 /* メイン・プログラム */
 signed main() {
@@ -25,6 +51,21 @@ signed main() {
 	
 	int n; cin >> n;
 	
+	int id = 1;
+	int dp = 1;
+	Node* root = (Node*)malloc(sizeof(Node));
+		root->index = id;
+		root->depth = dp;
+		root->right = NULL;
+		root->left = NULL;
+	
+	vec tp(2);
+	id++;
+	while(ct < n) {
+		rep(i, 2) cin >> tp[i];
+		/* How to make binaryTree? */
+		
+	}
 	
 	//cout << << endl;
 	
@@ -32,29 +73,6 @@ signed main() {
 	
 	return 0;
 }
-
-/*	(n * m) % dvs = ((n%dvs) * (m%dvs)) % dvs
-	int: (N+X+1)/X -> N/Xの切り上げ
-*/
-
-//std::string str;
-//str = std::to_string(int i);
-//bitset<3> s(N);
-//int ans = (char)grid - '0';
-//int id = lower_bound(all(arr), x) - arr.begin();
-//cout << fixed << setprecision(10) << tld << endl;
-//vector<int> sub(itr,itr+d); //イテレーターで部分数列(i=0...d)を指定
-		
-/*	struct data {
-	char *name;
-	int age;
-	int height;
-	double weight;
-};*/
-
-/*	string ans(lgd, '0');
-	string &refer = ans;
-	for(int i=0; i<lgd; i++) refer[i] = (char)vd[i] + '0';*/
 
 /*	map<int,int> mp;
 for(auto p : mp) {
