@@ -24,31 +24,43 @@ signed main() {
 	while(T > 0) { */
 	
 	int n1, n2, n3; cin >> n1 >> n2 >> n3;
-	vvec cyl(3, vec(101));
-	int st = 0; cyl[1].push_back(st);
-	repr(i, n1) {
-		int tp; cin >> tp; st += tp;
-		cyl[1].push_back(st);
+	int h1 = 0; int h2 = 0; int h3 = 0;
+	vec tw1, tw2, tw3;
+	rep(i, n1) {
+		int tp; cin >> tp;
+		tw1.push_back(tp);
+		h1 += tp;
 	}
-	st = 0; cyl[2].push_back(st);
-	repr(i, n2) {
-		int tp; cin >> tp; st += tp;
-		cyl[2].push_back(st);
+	rep(i, n2) {
+		int tp; cin >> tp;
+		tw2.push_back(tp);
+		h2 += tp;
 	}
-	st = 0; cyl[3].push_back(st);
-	repr(i, n3) {
-		int tp; cin >> tp; st += tp;
-		cyl[3].push_back(tp);
+	rep(i, n3) {
+		int tp; cin >> tp;
+		tw3.push_back(tp);
+		h3 += tp;
 	}
 	
-	int i = n1-1; int j = n2-1; int k = n3-1;
-	while(cyl[1][i] != cyl[2][j]) {
-		while(cyl[2][j] != cyl[3][k])) {
-			
+	int p1 = 0; int p2 = 0; int p3 =0;
+	bool frag = false;
+	if(h1 == h2 && h2 == h3) frag = true;
+	while(!frag) {
+		if(h1 >= h2 && h1 >= h3) {
+			h1 -= tw1[p1];
+			p1++;
+		} else if(h2 >= h1 && h2 >= h3) {
+			h2 -= tw2[p2];
+			p2++;
+		} else if(h3 >= h1 && h3 >= h2) {
+			h3 -= tw3[p3];
+			p3++;
 		}
+		
+		if(h1 == h2 && h2 == h3) frag = true;
 	}
 	
-	//cout << << endl;
+	cout << h1 << endl;
 	
 	/* number of tryal: end
 	T--; } */
