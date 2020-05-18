@@ -36,54 +36,42 @@ signed main() {
 	int T; cin >> T;
 	while(T > 0) { */
 	
-	getprime()
+	getprime();
 	int n, q; cin >> n >> q;
-	vector<stack<int>> 
+	vector<stack<int>> a(q+1), b(q+1);
 	
-	//cout << << endl;
+	rep(i, n) {
+		int tp; cin >> tp;
+		a[0].push(tp);
+	}
+	
+	rep2(i, 1, q+1) {
+		int p;
+		if(!prime.empty()) {
+			p = prime.front();
+			prime.pop();
+		} else p = 10001;
+		while(!a[i-1].empty()) {
+			int tp; tp = a[i-1].top(); a[i-1].pop();
+			if(tp%p == 0) {
+				b[i].push(tp);
+			} else {
+				a[i].push(tp);
+			}
+		}
+	}
+	
+	rep2(i, 1, q+1)while(!b[i].empty()) {
+		int tp; tp = b[i].top(); b[i].pop();
+		cout << tp << endl;
+	}
+	rep2(i, 1, q+1)while(!a[i].empty()) {
+		int tp; tp = a[i].top(); a[i].pop();
+		cout << tp << endl;
+	}
 	
 	/* number of tryal: end
 	T--; } */
 	
 	return 0;
 }
-
-/*	(n * m) % dvs = ((n%dvs) * (m%dvs)) % dvs
-	int: (N+X+1)/X -> N/Xの切り上げ
-*/
-
-//std::string str;
-//str = std::to_string(int i);
-//bitset<3> s(N);
-//int ans = (char)grid - '0';
-//int id = lower_bound(all(arr), x) - arr.begin();
-//cout << fixed << setprecision(10) << tld << endl;
-//vector<int> sub(itr,itr+d); //イテレーターで部分数列(i=0...d)を指定
-		
-/*	struct data {
-	char *name;
-	int age;
-	int height;
-	double weight;
-};*/
-
-/*	string ans(lgd, '0');
-	string &refer = ans;
-	for(int i=0; i<lgd; i++) refer[i] = (char)vd[i] + '0';*/
-
-/*	map<int,int> mp;
-for(auto p : mp) {
-	ct += p.second*(p.second-1); }
-
-map<int,int>::iterator itr, itr1, itr2;
-for(itr = mp.begin(); itr != mp.end(); itr++) {
-	ans += itr->second * (itr->second-1);
-}
-
-distance(itr1, itr2);
-advance(itr, k);
-next(itr, k); //=itr + k;
-*itr;
-itr = mp.begin(); mp.erase(itr);
-itr = prev(mp.end());
-*/
