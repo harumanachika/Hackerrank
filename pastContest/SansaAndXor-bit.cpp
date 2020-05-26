@@ -63,25 +63,3 @@ Else XOR the vector for every even index, starting from 0
 //int id = lower_bound(all(arr), x) - arr.begin();
 //cout << fixed << setprecision(10) << tld << endl;
 //vector<int> sub(itr,itr+d); //イテレーターで部分数列(i=0...d)を指定
-		
-/*struct data {
-	char *name;
-	int age;
-	int height;
-	double weight;
-};*/
-
-/*string ans = w;
-string &ref = ans;
-rep(i, N) {
-	ref[i] = arr[i];
-}*/
-
-/*map<int,int> mp;
-for(auto p : mp) {
-	ct += p.second*(p.second-1); }
-
-map<int,int>::iterator itr;
-for(itr = mp.begin(); itr != mp.end(); itr++) {
-	ans += itr->second * (itr->second-1);
-}*/
