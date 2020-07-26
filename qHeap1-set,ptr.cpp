@@ -25,15 +25,15 @@ signed main() {
 	while(T > 0) { */
 	
 	int q; cin >> q;
-	map<int> mp;
+	set<int> st; //keyのみのmap.
 	rep(i, q) {
 		int op; cin >> op;
 		if(op != 3) {
 			int v; cin >> v;
-			if(op == 1) mp[v]++;
-			else mp[v]--;
+			if(op == 1) st.insert(v);
+			else st.erase(st.find(v));
 		} else {
-			
+			cout << *st.begin() << endl; //pointer->iterator
 		}
 	}
 	//cout << << endl;
@@ -44,28 +44,6 @@ signed main() {
 	return 0;
 }
 
-/*	(n * m) % dvs = ((n%dvs) * (m%dvs)) % dvs
-	int: (N+X+1)/X -> N/Xの切り上げ
-*/
-
-//std::string str;
-//str = std::to_string(int i);
-//bitset<3> s(N);
-//int ans = (char)grid - '0';
-//int id = lower_bound(all(arr), x) - arr.begin();
-//cout << fixed << setprecision(10) << tld << endl;
-//vector<int> sub(itr,itr+d); //イテレーターで部分数列(i=0...d)を指定
-		
-/*	struct data {
-	char *name;
-	int age;
-	int height;
-	double weight;
-};*/
-
-/*	string ans(lgd, '0');
-	string &refer = ans;
-	for(int i=0; i<lgd; i++) refer[i] = (char)vd[i] + '0';*/
 
 /*	map<int,int> mp;
 for(auto p : mp) {
@@ -75,11 +53,4 @@ map<int,int>::iterator itr, itr1, itr2;
 for(itr = mp.begin(); itr != mp.end(); itr++) {
 	ans += itr->second * (itr->second-1);
 }
-
-distance(itr1, itr2);
-advance(itr, k);
-next(itr, k); //=itr + k;
-*itr;
-itr = mp.begin(); mp.erase(itr);
-itr = prev(mp.end());
 */
